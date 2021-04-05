@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>youtube视频下载</title>
+</head>
+<body>
+code: <input>
+<button type="button">提交</button>
+<br>
+<label></label>
+</body>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            var code = $("input").val();
+            if ("" == code) {
+                alert("code不能为空!");
+            } else {
+                $.ajax({
+                    url: "http://chickcc.cc:8090/commander/dl/" + code,
+                    context: document.body,
+                    success: function (res) {
+                        alert(res)
+                        $("label").text(res).css("color", "red")
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>
